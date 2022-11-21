@@ -1,3 +1,4 @@
+import { TextModule } from './../../text/text.module';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
@@ -13,6 +14,7 @@ import { BackendService } from './../../backend.service';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    TextModule
   ],
   templateUrl: './lazy-form.component.html',
   styleUrls: ['./lazy-form.component.css']

@@ -1,3 +1,4 @@
+import { TextModule } from './../text/text.module';
 import { LazyFormComponent } from './lazy-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +13,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    TextModule
   ]
 })
 export class LazyFormModule {
