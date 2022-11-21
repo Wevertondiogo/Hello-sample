@@ -24,7 +24,8 @@ export class HelloSampleComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.loadButton();
-    this.loadForm();
+    this.loadStandaloneForm();
+    // this.loadForm();
   }
 
  public ngOnDestroy(): void {
@@ -46,6 +47,17 @@ export class HelloSampleComponent implements OnInit, OnDestroy {
     instance.buttonTitle = "Contact Us";
     this.formSubmittedSubscription = instance.formSubmitted.subscribe(() =>
       console.log("The Form Submit Event is captured!")
-    );  }
+    );
+   }
+
+  private async loadStandaloneForm() {
+    const { StandaloneLazyFormComponent } = await import("./../standalone/lazy-form/lazy-form.component");
+    this.lazyFormComponent.clear();
+    const { instance } = this.lazyFormComponent.createComponent(StandaloneLazyFormComponent as any) as any;
+    instance.buttonTitle = "Contact Us";
+    this.formSubmittedSubscription = instance.formSubmitted.subscribe(() =>
+      console.log("The Form Submit Event is captured!")
+    );
+  }
 
 }
