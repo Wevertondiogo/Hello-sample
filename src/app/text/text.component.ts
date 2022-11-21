@@ -1,3 +1,9 @@
+import {
+  faCoffee,
+  faSquare,
+  faCheckSquare
+ } from '@fortawesome/free-solid-svg-icons';
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,6 +12,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./text.component.css']
 })
 export class TextComponent implements OnInit {
+  faCoffee = faCoffee;
+  faSquare = faSquare;
+  faCheckSquare = faCheckSquare;
 
   constructor() { }
 
