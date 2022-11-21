@@ -1,6 +1,6 @@
 import { BackendService } from './../backend.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-lazy-form',
@@ -13,9 +13,9 @@ export class LazyFormComponent implements OnInit {
 
   @Output() formSubmitted = new EventEmitter();
 
-  simpleForm = new FormGroup({
-    email: new FormControl("", [Validators.required, Validators.email]),
-    name: new FormControl("", [Validators.required]),
+  simpleForm = new UntypedFormGroup({
+    email: new UntypedFormControl("", [Validators.required, Validators.email]),
+    name: new UntypedFormControl("", [Validators.required]),
   });
 
   get name() {

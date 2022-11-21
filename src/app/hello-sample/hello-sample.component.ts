@@ -1,4 +1,4 @@
-import { Component, createNgModuleRef, Injector, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { Component, ComponentFactory, createNgModuleRef, Injector, Input, OnDestroy, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -32,7 +32,7 @@ export class HelloSampleComponent implements OnInit, OnDestroy {
 }
 
   private async loadButton(): Promise<void> {
-    const { ButtonComponent } = await import('./../button/button.component');
+    const { ButtonComponent } = await import('./../button/button.component') as any;
     this.buttonComponent.clear();
     this.buttonComponent.createComponent(ButtonComponent);
   }
@@ -42,7 +42,7 @@ export class HelloSampleComponent implements OnInit, OnDestroy {
     const moduleRef = createNgModuleRef(LazyFormModule, this.injector)
     const lazyFormComponent = moduleRef.instance.getComponent();
     this.lazyFormComponent.clear();
-    const { instance } = this.lazyFormComponent.createComponent(lazyFormComponent, {ngModuleRef: moduleRef});
+    const { instance } = this.lazyFormComponent.createComponent(lazyFormComponent, {ngModuleRef: moduleRef} as any) as any;
     instance.buttonTitle = "Contact Us";
     this.formSubmittedSubscription = instance.formSubmitted.subscribe(() =>
       console.log("The Form Submit Event is captured!")
